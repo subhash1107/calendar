@@ -56,9 +56,9 @@ const isDateWithEvent = (day) => {
 
   return (
     <>
-      <div className="h-[100vh] flex-col justify-center flex">
+      <div className="h-[100vh] flex-col sm:justify-center flex">
         <h1 className="text-center text-3xl font-semibold"> CALENDAR</h1>
-        <div className="bg-white  border shadow-lg rounded-xl p-4 sm:w-[80%] md:w-[60%] lg:w-[40%] w-full mx-auto">
+        <div className="bg-white  sm:border sm:shadow-lg sm:rounded-xl p-4 sm:w-[80%] md:w-[60%] lg:w-[40%] w-full mx-auto">
        
           <div className="flex  items-center justify-between mb-4">
             <button
