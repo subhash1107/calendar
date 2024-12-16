@@ -67,7 +67,7 @@ const Calendar = () => {
       <div className="h-[100vh] flex-col sm:justify-center flex">
         <h1 className="text-center text-3xl font-semibold">CALENDAR</h1>
         <div className="bg-white sm:border sm:shadow-lg sm:rounded-xl p-4 sm:w-[80%] md:w-[60%] lg:w-[40%] w-full mx-auto">
-          <div className="flex items-center justify-between mb-4 relative">
+          <div className="flex items-center justify-between mb-4 ">
             <button
               onClick={handlePrevMonth}
               className="p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -75,8 +75,8 @@ const Calendar = () => {
             >
               <ChevronLeft className="w-6 h-6 text-gray-600" />
             </button>
-
-            <div className="flex items-center space-x-2">
+             {/* year dropdown */}
+            <div className="flex items-center space-x-2 relative">
               <h2 className="text-xl font-semibold text-gray-800">
                 {currentDate.toLocaleString("default", { month: "long" })}
                 
@@ -87,19 +87,8 @@ const Calendar = () => {
                   {selectedYear}
                 </button>
               </h2>
-            </div>
-
-            <button
-              onClick={handleNextMonth}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-              aria-label="Next Month"
-            >
-              <ChevronRight className="w-6 h-6 text-gray-600" />
-            </button>
-          </div>
-
-          {isYearPickerOpen && (
-            <div className="absolute bg-white shadow-lg rounded-lg w-40 top-16 left-1/2 transform -translate-x-1/2 p-2 z-10">
+              {isYearPickerOpen && (
+            <div className="absolute bg-white shadow-lg rounded-lg right-0 top-0 h-[600%] overflow-y-auto p-2 z-10">
               <ul className="text-sm space-y-1">
                 {yearOptions.map((year) => (
                   <li
@@ -113,6 +102,18 @@ const Calendar = () => {
               </ul>
             </div>
           )}
+            </div>
+
+            <button
+              onClick={handleNextMonth}
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              aria-label="Next Month"
+            >
+              <ChevronRight className="w-6 h-6 text-gray-600" />
+            </button>
+          </div>
+
+
 
           <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500 mb-2">
             {weekdays.map((day) => (
